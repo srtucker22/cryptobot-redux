@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import {connect} from 'react-redux';
-import logo from './logo.svg';
-import './App.css';
-import {addTodo} from './actions/todos.actions';
+import logo from '../logo.svg';
+import '../App.css';
+import {addTodo} from '../actions/todos.actions';
 
 export class App extends Component {
   addTodo() {
