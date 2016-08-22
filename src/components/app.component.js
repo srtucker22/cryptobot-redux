@@ -20,7 +20,11 @@ export class App extends Component {
         <p className='App-intro'>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onClick={this.addTodo.bind(this)} onTouchTap={this.addTodo.bind(this)}>Test</button>
+        <button
+          onClick={this.addTodo.bind(this)}
+          onTouchTap={this.addTodo.bind(this)}>
+          Test
+        </button>
       </div>
     );
   }
