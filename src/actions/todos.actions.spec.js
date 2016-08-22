@@ -8,6 +8,8 @@ describe('actions', () => {
       type: actions.ADD_TODO,
       text
     };
-    expect(actions.addTodo(text)).to.eql(Object.assign(expectedAction, {id: 0}));
+    expect(actions.addTodo(text)).to.eql(Object.assign(expectedAction, {
+      id: 0
+    }));
   });
 });

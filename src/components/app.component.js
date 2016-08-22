@@ -6,6 +6,7 @@ import {addTodo} from '../actions/todos.actions';
 
 export class App extends Component {
   addTodo() {
+    console.log('ADD_TODO');
     this.props.dispatch(addTodo('cheese'));
   }
 
@@ -19,7 +20,7 @@ export class App extends Component {
         <p className='App-intro'>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <button onTouchTap={this.addTodo.bind(this)}>Test</button>
+        <button onClick={this.addTodo.bind(this)} onTouchTap={this.addTodo.bind(this)}>Test</button>
       </div>
     );
   }
