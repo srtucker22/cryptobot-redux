@@ -1,6 +1,6 @@
 import {expect} from 'chai';
-import reducer from './todos.reducer';
-import * as types from '../actions/todos.actions';
+import reducer from './cryptogram.reducer';
+import * as types from '../actions/cryptogram.actions';
 
 describe('todos reducer', () => {
   it('should return the initial state', () => {

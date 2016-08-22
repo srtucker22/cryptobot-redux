@@ -1,5 +1,38 @@
-body {
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+
+html, body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  height: 100%;
+  font-family: 'Share Tech Mono';
+  background: black;
+}
+
+textarea {
+  font-family: 'Share Tech Mono';
+  background: black;
+  color: white;
+  border: none;
+  resize: none;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  font-family: 'Share Tech Mono';
+  text-transform: uppercase;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table .cell {
+  display: table-cell;
+  vertical-align: middle;
 }

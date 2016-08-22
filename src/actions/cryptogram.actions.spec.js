@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import * as actions from './todos.actions';
+import * as actions from './cryptogram.actions';
 
 describe('actions', () => {
   it('should create an action to add a todo', () => {

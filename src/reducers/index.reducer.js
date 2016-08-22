@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import todos from './todos.reducer';
+import cryptograms from './cryptogram.reducer';
 
 export default combineReducers({
-  todos
+  cryptograms
 });
