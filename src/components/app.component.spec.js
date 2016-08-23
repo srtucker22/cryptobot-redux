@@ -59,8 +59,10 @@ describe('Component: App', function() {
       });
 
       describe('when we click a button', ()=> {
+        let sandbox = sinon.sandbox.create();
+
         function buttonTester(title, func) {
-          let spy = sinon.spy(Actions, func);
+          let spy = sandbox.spy(Actions, func);
           let button = wrapper.find('.button-container button').filterWhere(n => n.text() == title);
           expect(button).to.have.length(1);
           button.simulate('click');
@@ -76,21 +78,26 @@ describe('Component: App', function() {
         it('should request to decrypt text', ()=> {
           buttonTester('Decrypt', 'decrypt');
         });
+
+        sandbox.restore();
       });
     });
   });
 
   describe(`when we don't have a cryptogram`, ()=> {
+    let sandbox = sinon.sandbox.create();
+
+    let spy = sandbox.spy(Actions, 'getRandomQuote');
+    const {component, wrapper} = setup({}, true);
+
     it('should render loading page', ()=> {
-      const {component, wrapper} = setup({});
       expect(wrapper.find('.preloader')).to.have.length(1);
     });
-  });
 
-  // it('should render the app', function() {
-  //   expect(wrapper.find('.App')).to.have.length(1);
-  //   expect(wrapper.find('.App-header')).to.have.length(1);
-  //   wrapper.find('button').simulate('click');
-  //   expect(spy).to.have.property('callCount', 1);
-  // });
+    it('should request a random quote', ()=> {
+      expect(spy).to.have.property('callCount', 1);
+    });
+
+    sandbox.restore();
+  });
 });

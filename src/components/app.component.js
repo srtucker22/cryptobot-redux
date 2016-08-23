@@ -14,6 +14,13 @@ export class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log('componentDidMount', this.props.cryptogram);
+    if (!this.props.cryptogram) {
+      this.props.dispatch(Actions.getRandomQuote());
+    }
+  }
+
   close() {
     this.setState({
       info: false
@@ -95,4 +102,4 @@ App.propTypes = {
   loading: React.PropTypes.bool,
 };
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);
