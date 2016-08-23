@@ -20,3 +20,8 @@ export const LoadingDialog = ({progress})=> {
     </div>
   );
 };
+LoadingDialog.propTypes = {
+  progress: React.PropTypes.number
+};
+
+export default LoadingDialog;

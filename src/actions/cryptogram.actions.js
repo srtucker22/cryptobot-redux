@@ -24,6 +24,18 @@ export const toggleTodo = (id) => {
   };
 };
 
+export const getRandomQuote = ()=> {
+  return {};
+};
+
+export const encrypt = ()=> {
+  return {};
+};
+
+export const decrypt = ()=> {
+  return {};
+};
+
 // export function addPostRequest(post) {
 //   return (dispatch) => {
 //     return callApi('posts', 'post', {

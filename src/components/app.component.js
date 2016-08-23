@@ -12,11 +12,11 @@ export class App extends React.Component {
   }
 
   decrypt() {
-
+    this.props.dispatch(Actions.decrypt());
   }
 
   encrypt() {
-
+    this.props.dispatch(Actions.encrypt());
   }
 
   getRandomQuote() {
@@ -37,18 +37,22 @@ export class App extends React.Component {
         <textarea name='name'>
           {this.props.cryptogram.puzzle}
         </textarea>
-        <div classNameName='button-container'>
+        <div className='button-container'>
           <button
-            disabled={this.props.loading} onTouchTap={this.getRandomQuote.bind(this)}>
+            disabled={this.props.loading}
+            onClick={this.getRandomQuote.bind(this)}
+            onTouchTap={this.getRandomQuote.bind(this)}>
             Random quote
           </button>
           <button
             disabled={this.props.loading}
+            onClick={this.encrypt.bind(this)}
             onTouchTap={this.encrypt.bind(this)}>
             Encrypt
           </button>
           <button
             disabled={this.props.loading}
+            onClick={this.decrypt.bind(this)}
             onTouchTap={this.decrypt.bind(this)}>
             Decrypt
           </button>
