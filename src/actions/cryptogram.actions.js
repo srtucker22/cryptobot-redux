@@ -1,6 +1,11 @@
-let nextTodoId = 0;
+import 'isomorphic-fetch';
+import * as utils from '../utils/utils';
+import * as io from 'socket.io-client';
+
+let socket;
 
 export const ADD_TODO = 'ADD_TODO';
+export const UPDATE_CRYPTOGRAM = 'UPDATE_CRYPTOGRAM';
 
 export const addTodo = (text) => {
   return {
@@ -25,25 +30,45 @@ export const toggleTodo = (id) => {
 };
 
 export const getRandomQuote = ()=> {
-  return {};
+  return (dispatch)=> {
+    return fetch('http://localhost:3001/random_quote')
+      .then(res => res.json())
+      .then((body)=> {
+        dispatch(updateCryptogram({
+          puzzle: body.quote,
+          progress: 0
+        }));
+      });
+  };
 };
 
-export const encrypt = ()=> {
-  return {};
+export const updateCryptogram = (cryptogram)=> {
+  return {
+    type: UPDATE_CRYPTOGRAM,
+    cryptogram
+  };
 };
 
-export const decrypt = ()=> {
-  return {};
+export const encrypt = (quote)=> {
+  return {
+    type: UPDATE_CRYPTOGRAM,
+    cryptogram: {
+      progress: 0,
+      puzzle: utils.encryptQuote(quote)
+    }
+  };
 };
 
-// export function addPostRequest(post) {
-//   return (dispatch) => {
-//     return callApi('posts', 'post', {
-//       post: {
-//         name: post.name,
-//         title: post.title,
-//         content: post.content,
-//       },
-//     }).then(res => dispatch(addPost(res.post)));
-//   };
-// }
+export const decrypt = (cryptogram)=> {
+  if (!socket) {
+    socket = io.connect('http://localhost:3001/');
+  }
+
+  return (dispatch)=> {
+    socket.emit('decrypt', cryptogram);
+    socket.on('data', (data) => {
+      dispatch(updateCryptogram(data));
+    });
+    return Promise.resolve();
+  };
+};

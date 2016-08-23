@@ -7,8 +7,17 @@ import {About} from './about.component';
 import {LoadingDialog} from './loading-dialog.component';
 
 export class App extends React.Component {
-  close() {
+  constructor() {
+    super(...arguments);
+    this.state = {
+      info: false
+    };
+  }
 
+  close() {
+    this.setState({
+      info: false
+    });
   }
 
   decrypt() {
@@ -24,7 +33,9 @@ export class App extends React.Component {
   }
 
   toggleInfo() {
-
+    this.setState({
+      info: !this.state.info
+    });
   }
 
   render() {
@@ -66,16 +77,21 @@ export class App extends React.Component {
             i
           </div>
         </div>
-        {this.props.info ? <About close={this.close.bind(this)}/> : ''}
+        {this.state.info ? <About close={this.close.bind(this)}/> : ''}
       </div>
     );
   }
 };
 
+const mapStateToProps = (state) => {
+  return {
+    cryptogram: state.cryptogram
+  };
+};
+
 App.propTypes = {
   cryptogram: React.PropTypes.object,
   dispatch: React.PropTypes.func.isRequired,
-  info: React.PropTypes.bool,
   loading: React.PropTypes.bool,
 };
 

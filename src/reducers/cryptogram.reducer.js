@@ -1,3 +1,5 @@
+import {UPDATE_CRYPTOGRAM} from '../actions/cryptogram.actions';
+
 const todo = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -20,20 +22,13 @@ const todo = (state = {}, action) => {
   }
 };
 
-const todos = (state = [], action) => {
+const cryptogram = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return [
-        ...state,
-        todo(undefined, action)
-      ];
-    case 'TOGGLE_TODO':
-      return state.map(t =>
-        todo(t, action)
-      );
+    case UPDATE_CRYPTOGRAM:
+      return action.cryptogram;
     default:
       return state;
   }
 };
 
-export default todos;
+export default cryptogram;

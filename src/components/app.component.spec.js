@@ -7,7 +7,7 @@ import {LoadingDialog} from './loading-dialog.component';
 import {spyOnComponentMethod} from 'sinon-spy-react';
 import * as Actions from '../actions/cryptogram.actions';
 
-describe('<App/>', function() {
+describe('Component: App', function() {
   function setup(newProps, shouldMount) {
     const props = Object.assign({}, newProps, {
       dispatch: function() {}
@@ -32,7 +32,6 @@ describe('<App/>', function() {
     describe('when we are loading cryptogram data', ()=> {
       const props = {loading: true, cryptogram: {puzzle: 'cheese', progress: 0}};
       const {component, wrapper} = setup(props, true);
-      console.log(wrapper.props());
 
       it('should render a loading dialog', ()=> {
         expect(wrapper.find(LoadingDialog)).to.have.length(1);
