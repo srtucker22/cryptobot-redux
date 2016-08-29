@@ -21,7 +21,7 @@ describe('Actions: Cryptogram', () => {
     it('should query server for random quote and update cryptogram', () => {
       let response = {quote: 'this is a test quote', progress: 0};
       let scope = nock('http://localhost:3001')
-        .get('/random_quote')
+        .get('/files/random_quote')
         .reply(200, response);
 
       const store = mockStore({});

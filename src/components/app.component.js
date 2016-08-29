@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import logo from '../logo.svg';
 import './app.component.css';
 import * as Actions from '../actions/cryptogram.actions';
 import {About} from './about.component';
@@ -10,14 +9,23 @@ export class App extends React.Component {
   constructor() {
     super(...arguments);
     this.state = {
-      info: false
+      info: false,
+      cryptogram: {puzzle: '', progress: 0}
     };
   }
 
   componentDidMount() {
     console.log('componentDidMount', this.props.cryptogram);
-    if (!this.props.cryptogram) {
+    if (!Object.keys(this.props.cryptogram).length) {
       this.props.dispatch(Actions.getRandomQuote());
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (!!nextProps.cryptogram && !!nextProps.cryptogram.puzzle) {
+      this.setState({
+        cryptogram: nextProps.cryptogram
+      });
     }
   }
 
@@ -28,15 +36,24 @@ export class App extends React.Component {
   }
 
   decrypt() {
-    this.props.dispatch(Actions.decrypt());
+    if (this.state.cryptogram.puzzle.length) {
+      this.props.dispatch(Actions.decrypt(this.state.cryptogram));
+    }
   }
 
   encrypt() {
-    this.props.dispatch(Actions.encrypt());
+    this.props.dispatch(Actions.encrypt(this.state.cryptogram.puzzle));
   }
 
   getRandomQuote() {
     this.props.dispatch(Actions.getRandomQuote());
+  }
+
+  handleChange(e) {
+    this.setState({cryptogram: {
+      puzzle: e.target.value,
+      progress: 0
+    }});
   }
 
   toggleInfo() {
@@ -46,36 +63,38 @@ export class App extends React.Component {
   }
 
   render() {
-    if (!this.props.cryptogram) {
+    if (!this.state.cryptogram) {
       return <div className='preloader'><div>Loading...</div></div>;
     }
 
+    const loading = this.state.cryptogram.progress > 0 &&
+      this.state.cryptogram.progress < 100;
+
     return (
       <div className='wrapper'>
-        <textarea name='name'>
-          {this.props.cryptogram.puzzle}
-        </textarea>
+        {this.state.cryptogram ? <textarea
+          spellCheck='false'
+          name='name'
+          value={this.state.cryptogram.puzzle}
+          onChange={this.handleChange.bind(this)}/> : ''}
         <div className='button-container'>
           <button
-            disabled={this.props.loading}
-            onClick={this.getRandomQuote.bind(this)}
+            disabled={loading}
             onTouchTap={this.getRandomQuote.bind(this)}>
             Random quote
           </button>
           <button
-            disabled={this.props.loading}
-            onClick={this.encrypt.bind(this)}
+            disabled={loading}
             onTouchTap={this.encrypt.bind(this)}>
             Encrypt
           </button>
           <button
-            disabled={this.props.loading}
-            onClick={this.decrypt.bind(this)}
+            disabled={loading}
             onTouchTap={this.decrypt.bind(this)}>
             Decrypt
           </button>
         </div>
-        {this.props.loading ?
+        {loading ?
           <LoadingDialog
             progress={this.props.cryptogram.progress}
           /> : ''}
@@ -92,14 +111,13 @@ export class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    cryptogram: state.cryptogram
+    cryptogram: state.cryptogram,
   };
 };
 
 App.propTypes = {
   cryptogram: React.PropTypes.object,
-  dispatch: React.PropTypes.func.isRequired,
-  loading: React.PropTypes.bool,
+  dispatch: React.PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(App);
