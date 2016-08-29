@@ -67,8 +67,7 @@ export class App extends React.Component {
       return <div className='preloader'><div>Loading...</div></div>;
     }
 
-    const loading = this.state.cryptogram.progress > 0 &&
-      this.state.cryptogram.progress < 100;
+    const loading = this.state.cryptogram.loading;
 
     return (
       <div className='wrapper'>

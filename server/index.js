@@ -22,7 +22,6 @@ export const makeServer = ()=> {
   app.use('/files', routes.files);
 
   io.on('connection', (socket) => {
-    console.log('CONNECTION', Date.now());
     socket.on('decrypt', (cryptogram)=> {
       solver.simulatedAnnealing(cryptogram, socket);
     });

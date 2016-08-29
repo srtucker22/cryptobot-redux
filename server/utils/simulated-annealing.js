@@ -76,15 +76,9 @@ function cost(cipherDigramFrequency) {
 }
 
 export default class Solver {
-  constructor() {
-    console.log('expectedDigramFrequencies', expectedDigramFrequencies);
-    console.log('expectedSortedLetterFrequencies', expectedSortedLetterFrequencies);
-  }
-
   // takes a Cryptogram {puzzle: string, progress: integer(0-100)}
   // performs simulated annealing
   static simulatedAnnealing(cryptogram, socket) {
-    console.log('cryptogram starting', cryptogram.puzzle);
     let killed = false;
     socket.on('disconnect', () => {
       killed = true;
@@ -128,7 +122,7 @@ export default class Solver {
     );
 
     // first update
-    socket.emit('data', Object.assign({}, cryptogram, {
+    socket.emit('data', Object.assign({loading: true}, cryptogram, {
       puzzle: getCipherText(bestCipher, fullPuzzle),
       progress: progressIncrement * progressCounter
     }));
@@ -195,8 +189,7 @@ export default class Solver {
         counter += 1;
       });
 
-      console.log('emitting', progressIncrement * progressCounter);
-      socket.emit('data', Object.assign({}, cryptogram, {
+      socket.emit('data', Object.assign({loading: t >= T_MIN}, cryptogram, {
         puzzle: getCipherText(bestCipher, fullPuzzle),
         progress: progressIncrement * progressCounter
       }));
@@ -205,7 +198,6 @@ export default class Solver {
       // drop the temperature and tighten our allowance for child < parent
       setTimeout(()=> {
         if (t < T_MIN) {
-          console.log(fullPuzzle, bestCipher, getCipherText(bestCipher, fullPuzzle));
           return;
         }
 

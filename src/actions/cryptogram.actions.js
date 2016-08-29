@@ -46,6 +46,7 @@ export const decrypt = (cryptogram)=> {
     socket.on('data', (data) => {
       dispatch(updateCryptogram(data));
     });
-    return Promise.resolve();
+
+    dispatch(updateCryptogram(Object.assign({loading: true}, cryptogram)));
   };
 };

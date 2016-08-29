@@ -1,0 +1,39 @@
+import React from 'react';
+
+export const Sample = ()=> {
+  return (
+    <div>
+      <p><b>starting cost of puzzle:</b>  1.62891233179</p>
+      <p><b>cost of initial guess:</b>  0.97605288424</p>
+      <p><b>inital guess:</b>{`  aunme car wefnhhnhf to fet vesy tnsel og rnttnhf wy ies rnrtes oh tie wahb, ahl og iavnhf hotinhf to lo: ohme os tcnme rie ial peepel nhto tie woob ies rnrtes car sealnhf, wdt nt ial ho pnmtdser os mohvesratnohr nh nt, 'ahl ciat nr tie dre og a woob,' tiodfit aunme 'cntiodt pnmtdser os mohvesratnohr?'  ro rie car mohrnlesnhf nh ies och knhl (ar ceuu ar rie modul, gos tie iot lay kale ies geeu vesy rueepy ahl rtdpnl), cieties tie pueardse og kabnhf a lanry-mianh codul we costi tie tsodwue og fettnhf dp ahl pnmbnhf tie lanrner, cieh rdllehuy a cinte sawwnt cnti pnhb eyer sah muore wy ies.  tiese car hotinhf ro vesy sekasbawue nh tiat; hos lnl aunme tinhb nt ro vesy kdmi odt og tie cay to ieas tie sawwnt ray to ntreug, 'oi leas! oi leas! n riauu we uate!' (cieh rie tiodfit nt oves agtescaslr, nt ommdssel to ies tiat rie odfit to iave cohlesel at tinr, wdt at tie tnke nt auu reekel qdnte hatdsau); wdt cieh tie sawwnt amtdauuy toob a catmi odt og ntr canrtmoat-pombet, ahl uoobel at nt, ahl tieh idssnel oh, aunme rtastel to ies geet, gos nt guariel amsorr ies knhl tiat rie ial heves wegose reeh a sawwnt cnti enties a canrtmoat-pombet, os a catmi to tabe odt og nt, ahl wdshnhf cnti mdsnornty, rie sah amsorr tie gneul agtes nt, ahl gostdhateuy car xdrt nh tnke to ree nt pop loch a uasfe sawwnt-ioue dhles tie ielfe.`
+    }</p>
+      <br/>
+      <p><b>current temperature:</b>  0.1</p>
+      <p><b>iterations accepted:</b> 1764 out of 2000</p>
+      <p><b>cost of current guess:</b>  0.97605288424</p>
+      <p><b>current best guess:</b>{`  aunme car wefnhhnhf to fet vesy tnsel og rnttnhf wy ies rnrtes oh tie wahb, ahl og iavnhf hotinhf to lo: ohme os tcnme rie ial peepel nhto tie woob ies rnrtes car sealnhf, wdt nt ial ho pnmtdser os mohvesratnohr nh nt, 'ahl ciat nr tie dre og a woob,' tiodfit aunme 'cntiodt pnmtdser os mohvesratnohr?'  ro rie car mohrnlesnhf nh ies och knhl (ar ceuu ar rie modul, gos tie iot lay kale ies geeu vesy rueepy ahl rtdpnl), cieties tie pueardse og kabnhf a lanry-mianh codul we costi tie tsodwue og fettnhf dp ahl pnmbnhf tie lanrner, cieh rdllehuy a cinte sawwnt cnti pnhb eyer sah muore wy ies.  tiese car hotinhf ro vesy sekasbawue nh tiat; hos lnl aunme tinhb nt ro vesy kdmi odt og tie cay to ieas tie sawwnt ray to ntreug, 'oi leas! oi leas! n riauu we uate!' (cieh rie tiodfit nt oves agtescaslr, nt ommdssel to ies tiat rie odfit to iave cohlesel at tinr, wdt at tie tnke nt auu reekel qdnte hatdsau); wdt cieh tie sawwnt amtdauuy toob a catmi odt og ntr canrtmoat-pombet, ahl uoobel at nt, ahl tieh idssnel oh, aunme rtastel to ies geet, gos nt guariel amsorr ies knhl tiat rie ial heves wegose reeh a sawwnt cnti enties a canrtmoat-pombet, os a catmi to tabe odt og nt, ahl wdshnhf cnti mdsnornty, rie sah amsorr tie gneul agtes nt, ahl gostdhateuy car xdrt nh tnke to ree nt pop loch a uasfe sawwnt-ioue dhles tie ielfe.`
+    }</p>
+      <br/>
+      <p><b>current temperature:</b>  0.0666666666667</p>
+      <p><b>iterations accepted:</b> 1699 out of 2000</p>
+      <p><b>cost of current guess:</b>  0.97605288424</p>
+      <p><b>current best guess:</b>{`  aunme car wefnhhnhf to fet vesy tnsel og rnttnhf wy ies rnrtes oh tie wahb, ahl og iavnhf hotinhf to lo: ohme os tcnme rie ial peepel nhto tie woob ies rnrtes car sealnhf, wdt nt ial ho pnmtdser os mohvesratnohr nh nt, 'ahl ciat nr tie dre og a woob,' tiodfit aunme 'cntiodt pnmtdser os mohvesratnohr?'  ro rie car mohrnlesnhf nh ies och knhl (ar ceuu ar rie modul, gos tie iot lay kale ies geeu vesy rueepy ahl rtdpnl), cieties tie pueardse og kabnhf a lanry-mianh codul we costi tie tsodwue og fettnhf dp ahl pnmbnhf tie lanrner, cieh rdllehuy a cinte sawwnt cnti pnhb eyer sah muore wy ies.  tiese car hotinhf ro vesy sekasbawue nh tiat; hos lnl aunme tinhb nt ro vesy kdmi odt og tie cay to ieas tie sawwnt ray to ntreug, 'oi leas! oi leas! n riauu we uate!' (cieh rie tiodfit nt oves agtescaslr, nt ommdssel to ies tiat rie odfit to iave cohlesel at tinr, wdt at tie tnke nt auu reekel qdnte hatdsau); wdt cieh tie sawwnt amtdauuy toob a catmi odt og ntr canrtmoat-pombet, ahl uoobel at nt, ahl tieh idssnel oh, aunme rtastel to ies geet, gos nt guariel amsorr ies knhl tiat rie ial heves wegose reeh a sawwnt cnti enties a canrtmoat-pombet, os a catmi to tabe odt og nt, ahl wdshnhf cnti mdsnornty, rie sah amsorr tie gneul agtes nt, ahl gostdhateuy car xdrt nh tnke to ree nt pop loch a uasfe sawwnt-ioue dhles tie ielfe.`
+    }</p>
+      <p>...</p>
+      <p><b>current temperature:</b>  0.0131687242798</p>
+      <p><b>iterations accepted:</b> 437 out of 2000</p>
+      <p><b>cost of current guess:</b>  0.565439978519</p>
+      <p><b>current best guess:</b>{`  alice waf beginning to get sery tired oj fitting by her fifter on the bank, and oj hasing nothing to do: once or twice fhe had peeped into the book her fifter waf reading, but it had no picturef or conserfationf in it, 'and what if the ufe oj a book,' thought alice 'without picturef or conserfationf?'  fo fhe waf confidering in her own mind (af well af fhe could, jor the hot day made her jeel sery fleepy and ftupid), whether the pleafure oj making a daify-chain would be worth the trouble oj getting up and picking the daifief, when fuddenly a white rabbit with pink eyef ran clofe by her.  there waf nothing fo sery remarkable in that; nor did alice think it fo sery much out oj the way to hear the rabbit fay to itfelj, 'oh dear! oh dear! i fhall be late!' (when fhe thought it oser ajterwardf, it occurred to her that fhe ought to hase wondered at thif, but at the time it all feemed quite natural); but when the rabbit actually took a watch out oj itf waiftcoat-pocket, and looked at it, and then hurried on, alice ftarted to her jeet, jor it jlafhed acroff her mind that fhe had neser bejore feen a rabbit with either a waiftcoat-pocket, or a watch to take out oj it, and burning with curiofity, fhe ran acroff the jield ajter it, and jortunately waf zuft in time to fee it pop down a large rabbit-hole under the hedge.`
+    }</p>
+      <p>...</p>
+
+      <p><b>current temperature:</b>  0.00877914951989</p>
+      <p><b>iterations accepted:</b> 98 out of 2000</p>
+      <p><b>cost of final guess:</b>  0.426379365101</p>
+      <p><b>final guess:</b>{`  alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, 'and what is the use of a book,' thought alice 'without pictures or conversations?'  so she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a white rabbit with pink eyes ran close by her.  there was nothing so very remarkable in that; nor did alice think it so very much out of the way to hear the rabbit say to itself, 'oh dear! oh dear! i shall be late!' (when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed juite natural); but when the rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, alice started to her feet, for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and burning with curiosity, she ran across the field after it, and fortunately was qust in time to see it pop down a large rabbit-hole under the hedge.`
+    }</p>
+    </div>
+  );
+};
+
+export default Sample;

@@ -1,20 +1,22 @@
+import _ from 'underscore';
 import React from 'react';
 import './loading-dialog.component.css';
 
 export const LoadingDialog = ({progress})=> {
   function getBars() {
-    return Array(Math.floor(progress / 10));
+    return Math.floor(progress / 10);
   }
 
   return (
-    <div className='wrapper'>
+    <div>
       <div className='inner'>
         <div className='loading'>
           Loading
         </div>
         <br/>
         <div className='bar-outer'>
-          {getBars().map(bar=> <div className='bar-inner'></div>)}
+          {_.range(getBars()).map((bar, i)=> <div
+            className='bar-inner' key={i}></div>)}
         </div>
       </div>
     </div>
