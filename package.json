@@ -1,5 +1,5 @@
 {
-  "name": "react-tester",
+  "name": "cryptobot",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
@@ -18,7 +18,7 @@
     "nock": "^8.0.0",
     "nodemon": "^1.10.2",
     "react-addons-test-utils": "^15.3.0",
-    "react-scripts": "0.2.2",
+    "react-scripts": "0.2.3",
     "redux-devtools": "^3.3.1",
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
@@ -43,9 +43,10 @@
     "underscore": "^1.8.3"
   },
   "scripts": {
-    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
-    "start:client": "react-scripts start",
+    "start": "npm run start:server",
     "start:server": "PORT=3001 nodemon --watch server server/index.js --ignore app/ --exec babel-node --presets es2015",
+    "start:dev": "concurrently \"npm run start:dev:client\" \"npm run start:server\"",
+    "start:dev:client": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "mocha --recursive -w -r test/setup.js --compilers js:test/null-compiler.js $(find . -name '*.spec.js')"

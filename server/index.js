@@ -12,6 +12,7 @@ export const makeServer = ()=> {
   const io = socketIO(server);
 
   app.use(morgan('combined'));
+  app.use(express.static(__dirname + '/../build'));
   app.use((req, res, next)=> {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers',
@@ -20,6 +21,9 @@ export const makeServer = ()=> {
   });
 
   app.use('/files', routes.files);
+  app.get('/', (req, res)=> {
+    res.sendFile(__dirname + '/../build/index.html');
+  });
 
   io.on('connection', (socket) => {
     socket.on('decrypt', (cryptogram)=> {
