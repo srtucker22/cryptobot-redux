@@ -6,17 +6,17 @@ import {About} from './about.component';
 import {LoadingDialog} from './loading-dialog.component';
 
 export class App extends React.Component {
-  constructor() {
-    super(...arguments);
+  constructor(props) {
+    super(props);
     this.state = {
       info: false,
-      cryptogram: {puzzle: '', progress: 0}
+      cryptogram: props.cryptogram || {puzzle: '', progress: 0}
     };
   }
 
   componentDidMount() {
-    console.log('componentDidMount', this.props.cryptogram);
-    if (!Object.keys(this.props.cryptogram).length) {
+    if (!this.props.cryptogram ||
+      !Object.keys(this.props.cryptogram).length) {
       this.props.dispatch(Actions.getRandomQuote());
     }
   }
@@ -63,7 +63,7 @@ export class App extends React.Component {
   }
 
   render() {
-    if (!this.state.cryptogram) {
+    if (!this.props.cryptogram) {
       return <div className='preloader'><div>Loading...</div></div>;
     }
 
@@ -93,7 +93,7 @@ export class App extends React.Component {
             Decrypt
           </button>
         </div>
-        {loading ?
+        {!!loading ?
           <LoadingDialog
             progress={this.props.cryptogram.progress}
           /> : ''}

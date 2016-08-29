@@ -30,7 +30,7 @@ describe('Component: App', function() {
     });
 
     describe('when we are loading cryptogram data', ()=> {
-      const props = {loading: true, cryptogram: {puzzle: 'cheese', progress: 0}};
+      const props = {cryptogram: {puzzle: 'cheese', progress: 0, loading: true}};
       const {component, wrapper} = setup(props, true);
 
       it('should render a loading dialog', ()=> {
@@ -65,7 +65,7 @@ describe('Component: App', function() {
           let spy = sandbox.spy(Actions, func);
           let button = wrapper.find('.button-container button').filterWhere(n => n.text() == title);
           expect(button).to.have.length(1);
-          button.simulate('click');
+          button.simulate('touchTap');
           expect(spy).to.have.property('callCount', 1);
         }
 

@@ -1,6 +1,12 @@
 require('babel-register')();
-
+var injectTapEventPlugin = require('react-tap-event-plugin');
 var jsdom = require('jsdom').jsdom;
+
+try {
+  injectTapEventPlugin();
+} catch (e) {
+
+}
 
 var exposedProperties = ['window', 'navigator', 'document'];
 

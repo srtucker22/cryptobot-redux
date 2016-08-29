@@ -47,6 +47,6 @@ export const decrypt = (cryptogram)=> {
       dispatch(updateCryptogram(data));
     });
 
-    dispatch(updateCryptogram(Object.assign({loading: true}, cryptogram)));
+    return dispatch(updateCryptogram(Object.assign({loading: true}, cryptogram)));
   };
 };

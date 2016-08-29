@@ -23,9 +23,9 @@ describe('Server: index', function() {
         });
     });
 
-    it('responds to /files/random', (done)=> {
+    it('responds to /files/random_quote', (done)=> {
       request(server)
-        .get('/files/random')
+        .get('/files/random_quote')
         .expect(200)
         .end((err, res)=> {
           if (err) {return done(err);};

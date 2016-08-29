@@ -65,7 +65,7 @@ describe('Actions: Cryptogram', () => {
     });
   });
 
-  describe('when calling decrypt', (done)=> {
+  describe('when calling decrypt', ()=> {
     beforeEach(()=> {
       mockery.enable({
         warnOnReplace: false,
@@ -78,20 +78,24 @@ describe('Actions: Cryptogram', () => {
       mockery.disable();
     });
 
-    it('should query server for random quote and update cryptogram', () => {
+    it('should decrypt the cryptogram', (done) => {
+      const firstMessage = {
+        puzzle: 'solving',
+        progress: 1,
+        loading: true
+      };
+
+      const secondMessage = {
+        puzzle: 'solved',
+        progress: 100,
+        loading: false
+      };
+
       try {
         const mockServer = new Server('http://localhost:3001');
-        const firstMessage = {
-          puzzle: 'solving',
-          progress: 1
-        };
-
-        const secondMessage = {
-          puzzle: 'solved',
-          progress: 100
-        };
 
         mockServer.on('connection', socket => {
+          console.log('connection');
           socket.on('decrypt', (cryptogram)=> {
             socket.emit(firstMessage);
             setTimeout(()=> {
@@ -101,30 +105,34 @@ describe('Actions: Cryptogram', () => {
         });
       } catch (e) {
         // server has already been created
+        console.log(e);
       }
 
       mockery.registerMock('io', SocketIO);
 
       const store = mockStore({});
-      store.dispatch(Actions.decrypt({puzzle: 'test puzzle'}))
-        .then(() => { // return of async actions
-          expect(store.getActions()).to.eql([{
-            type: Actions.UPDATE_CRYPTOGRAM,
-            cryptogram: firstMessage
-          }]);
+      store.dispatch(Actions.decrypt({puzzle: 'test puzzle'}));
 
-          setTimeout(()=> {
-            expect(store.getActions()).to.eql([{
-              type: Actions.UPDATE_CRYPTOGRAM,
-              cryptogram: firstMessage
-            }, {
-              type: Actions.UPDATE_CRYPTOGRAM,
-              cryptogram: secondMessage
-            }]);
+      expect(store.getActions()).to.eql([{
+        type: Actions.UPDATE_CRYPTOGRAM,
+        cryptogram: {puzzle: 'test puzzle', loading: true},
+      }]);
 
-            done();
-          }, 500);
-        });
+      setTimeout(()=> {
+        console.log(store.getActions());
+        expect(store.getActions()).to.eql([{
+          type: Actions.UPDATE_CRYPTOGRAM,
+          cryptogram: {puzzle: 'test puzzle', loading: true},
+        }, {
+          type: Actions.UPDATE_CRYPTOGRAM,
+          cryptogram: firstMessage
+        }, {
+          type: Actions.UPDATE_CRYPTOGRAM,
+          cryptogram: secondMessage
+        }]);
+
+        done();
+      }, 500);
     });
   });
 });
