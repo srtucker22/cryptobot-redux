@@ -2,6 +2,7 @@
   "name": "cryptobot",
   "version": "0.0.1",
   "private": true,
+  "proxy": "http://localhost:3001",
   "devDependencies": {
     "babel-preset-airbnb": "^2.0.0",
     "babel-preset-es2015": "^6.14.0",
