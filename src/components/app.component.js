@@ -75,21 +75,21 @@ export class App extends React.Component {
           spellCheck='false'
           name='name'
           value={this.state.cryptogram.puzzle}
-          onChange={this.handleChange.bind(this)}/> : ''}
+          onChange={!loading && this.handleChange.bind(this)}/> : ''}
         <div className='button-container'>
           <button
             disabled={loading}
-            onTouchTap={this.getRandomQuote.bind(this)}>
+            onTouchTap={!loading && this.getRandomQuote.bind(this)}>
             Random quote
           </button>
           <button
             disabled={loading}
-            onTouchTap={this.encrypt.bind(this)}>
+            onTouchTap={!loading && this.encrypt.bind(this)}>
             Encrypt
           </button>
           <button
             disabled={loading}
-            onTouchTap={this.decrypt.bind(this)}>
+            onTouchTap={!loading && this.decrypt.bind(this)}>
             Decrypt
           </button>
         </div>
