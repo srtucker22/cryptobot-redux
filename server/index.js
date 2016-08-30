@@ -31,7 +31,7 @@ export const makeServer = ()=> {
     });
   });
 
-  server.listen(process.env.PORT, () =>
+  server.listen(process.env.PORT || 3001, () =>
     console.log('listening on ' + process.env.PORT));
 
   return server;

@@ -15,7 +15,7 @@ export const updateCryptogram = (cryptogram)=> {
 
 export const getRandomQuote = ()=> {
   return (dispatch)=> {
-    return fetch(`${utils.API}/files/random_quote`)
+    return fetch(`/files/random_quote`)
       .then(res => res.json())
       .then((body)=> {
         dispatch(updateCryptogram({
@@ -38,7 +38,7 @@ export const encrypt = (quote)=> {
 
 export const decrypt = (cryptogram)=> {
   if (!socket) {
-    socket = io.connect(utils.API);
+    socket = io.connect('/');
   }
 
   return (dispatch)=> {
