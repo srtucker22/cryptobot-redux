@@ -22,7 +22,9 @@ export const makeServer = ()=> {
 
   io.on('connection', (socket) => {
     socket.on('decrypt', (cryptogram)=> {
-      solver.simulatedAnnealing(cryptogram, socket);
+      if (typeof cryptogram.puzzle === 'string') {
+        solver.simulatedAnnealing(cryptogram, socket);
+      }
     });
   });
 
